@@ -14,7 +14,24 @@ info:
 servers:
   - url: 'https://api.openweathermap.org/data/2.5'
     description: prod
-paths: {}
+paths:
+  /weather:
+    get:
+      summary: weather
+      tags:
+        - Weather endpoints
+      responses: {}
+      operationId: getWeather
+      description: get weather
+      security:
+        - app_id: []
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: zip
+          description: '** zip code ** . Search by zip code. Example: 95050, please note that if the country is not specified, the search users USA as a default'
+    parameters: []
 components:
   schemas: {}
   securitySchemes:
